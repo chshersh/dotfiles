@@ -1,0 +1,100 @@
+:q
+fmap parseTOML $ Data.Text.IO.readFile "/home/fenx/.life" 
+fmap parseTOML  Data.Text.IO.readFile "/home/fenx/.life" 
+Data.Text.IO.readFile "/home/fenx/.life" >>= parseTOML 
+import TOML 
+import qualified Data.Text.IO
+:q
+import qualified Data.Text
+import qualified Data.Text.IO as T
+import TOML 
+:q
+ (588200 + 32500) - (15000 + 5000) * 7 + 207000
+ (588200 + 32500) - (15000 + 5000) * 7
+ (588200 + 32500) - (15000 * 5000) * 7
+ (588200 + 32500) - 15000 * 7
+ 588200 + 32500
+ 450000 + 32500
+:q
+:r
+:r
+:r
+:r
+:r
+:l Time.hs 
+:q
+convertUnit (900 :: Millisecond) :: Second
+import Data.Time.Units 
+:q
+:kind! Convert Second MicroSecond  
+:kind! Convert Second MilliSecond 
+:kind! Convert Second Second
+:kind! Convert Second MilliSecond 
+:kind! Convert Second MicroSecond 
+:kind! Convert Second Second
+:k Convert Second Second
+:!k Convert Second Second
+:k Convert Second Second
+:k! Convert Second Second
+:r
+:r
+:r
+:r
+:l Time.hs 
+:q
+:k 'Cons
+:k Cons
+:k List
+data List a = Nil | Cons a (List a)
+:k '[]
+:set -XDataKinds 
+:q
+:t flip launchWithConfig <*> defaultConfig 
+:t launchWithConfig <*> defaultConfig 
+:q
+Жй
+:q
+:t \f g -> f <*> g
+import Control.Applicative
+:q
+16.5 / 22.5
+:q
+(True, 1, []) ^. _1
+import Lens.Micro
+:q
+(140 * 60 + 27) + (165 * 60 + 35) + (157 * 60 + 17) + (159 * 60 + 49) + (158 * 60 + 48) + (135 * 60 + 34) + (192 * 60 + 30) + (161 * 60 + 37) + (155 * 60 + 44) + (186 * 60 + 11) + (136 * 60 + 15) + (162 * 60 + 26) + (151 * 60 + 17) + (136 * 60 + 30)
+(140 * 60 + 27) + (165 * 60 + 35) + (157 * 60 + 17) + (159 * 60 + 49) + (158 * 60 + 48) + (135 * 60 + 34) + (192 * 60 + 30) + (161 * 60 + 37) + (155 * 60 + 44) + (186 * 60 + 11) + (136 * 60 + 15) + (162 * 60 + 26) + (151 * 60 + 17)
+:q
+17.5 / 22.5 
+155 * 3 + 150 * 7 + 130 * 4
+79200 / 60
+126000 / 60
+:q
+myReverse [a,b,c,d]
+import Debug.SimpleReflect
+:}
+myReverse = foldl (\a x -> x:a) []
+myReverse :: [a] -> [a]
+:{
+:}
+favorite
+down vote
+ 3
+:{
+:}
+myReverse = foldl (\a x -> x:a) []
+myReverse = [a] -> [a]
+:{
+:q
+:?
+:}
+:q
+:{
+:q
+:q
+:q
+:q
+show "abacaba"
+:q
+28000 + 500 + 3521.87
+:q

@@ -3,4 +3,5 @@ files       = [ ".bashrc"
               , ".vimrc"
               ]
 
-directories = []
+directories = [ ".ghc/"
+              ]
