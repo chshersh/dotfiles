@@ -1,4 +1,5 @@
-files       = [ ".life"
+files       = [ ".bashrc"
+              , ".life"
               , ".vimrc"
               ]
 
