@@ -1,4 +1,5 @@
 files       = [ ".life"
+              , ".vimrc"
               ]
 
 directories = []
