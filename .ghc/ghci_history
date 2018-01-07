@@ -1,3 +1,17 @@
+mcs3
+let mcs3 = convertUnit sec3 :: MicroSecond
+let sec3 = 3 :: Second
+:set -XDataKinds -XTypeFamilies -XTypeOperators 
+:set -XDataKinds 
+:q
+:r
+:r
+:r
+:r
+;r
+:r
+fbuild
+:l Time.hs 
 :q
 fmap parseTOML $ Data.Text.IO.readFile "/home/fenx/.life" 
 fmap parseTOML  Data.Text.IO.readFile "/home/fenx/.life" 
@@ -84,17 +98,3 @@ down vote
 :}
 myReverse = foldl (\a x -> x:a) []
 myReverse = [a] -> [a]
-:{
-:q
-:?
-:}
-:q
-:{
-:q
-:q
-:q
-:q
-show "abacaba"
-:q
-28000 + 500 + 3521.87
-:q

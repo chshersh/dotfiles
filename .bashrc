@@ -123,6 +123,9 @@ eval "$(stack --bash-completion-script stack)"
 alias sbuild="stack build        -j 2 --test --bench --no-run-tests --no-run-benchmarks"
 alias fbuild="stack build --fast -j 2 --test --bench --no-run-tests --no-run-benchmarks"
 
+# path to cabal
+export PATH="$PATH:/opt/cabal/head/bin"
+
 # path to RipGrep
 alias rg="~/programming/distrs/ripgrep/rg"
 source /home/fenx/programming/haskell/serokell/teleport/teleport.sh
