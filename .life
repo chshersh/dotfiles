@@ -1,8 +1,6 @@
-files       = [ ".bashrc"
-              , ".life"
-              , ".spacemacs"
-              , ".vimrc"
-              ]
-
-directories = [ ".ghc/"
-              ]
+directories = []
+files = [ ".bashrc"
+        , ".life"
+        , ".spacemacs"
+        , ".vimrc"
+        ]
