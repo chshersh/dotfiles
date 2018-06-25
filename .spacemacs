@@ -31,6 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     csv
+     rust
      javascript
      html
      yaml
@@ -45,6 +47,7 @@ values."
      auto-completion
      spell-checking
      (haskell :variables haskell-completion-backend 'company-ghci)
+     idris
      markdown
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
