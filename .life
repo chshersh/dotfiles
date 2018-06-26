@@ -1,5 +1,4 @@
 directories = []
-
 files = [ ".bashrc"
         , ".ghc/ghci.conf"
         , ".gitconfig"
