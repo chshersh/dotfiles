@@ -1,4 +1,4 @@
-
+directories = []
 files = [ ".bashrc"
         , ".ghc/ghci.conf"
         , ".gitconfig"
@@ -7,5 +7,3 @@ files = [ ".bashrc"
         , ".spacemacs"
         , ".vimrc"
         ]
-
-directories = []
