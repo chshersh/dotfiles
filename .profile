@@ -16,8 +16,11 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 if [ -e /home/fenx/.nix-profile/etc/profile.d/nix.sh ]; then . /home/fenx/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
+# set PATH so it includes user's private bin directories
+PATH="$HOME/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH"
+
+# path to cabal and GHC
+export PATH="$PATH:/opt/cabal/head/bin"
 export PATH="$PATH:/opt/ghc/8.4.3/bin"
