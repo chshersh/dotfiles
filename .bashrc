@@ -122,13 +122,7 @@ eval "$(stack --bash-completion-script stack)"
 # useful stack aliases
 alias sbuild="stack build        -j 2 --test --bench --no-run-tests --no-run-benchmarks"
 alias fbuild="stack build --fast -j 2 --test --bench --no-run-tests --no-run-benchmarks"
-
-source /home/fenx/programming/haskell/serokell/teleport/teleport.sh
+alias cbuild="cabal new-build --enable-tests --enable-benchmarks"
 
 # Navigation shortcuts
 alias ..="cd .."
-alias b="cd -"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
