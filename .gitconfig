@@ -8,6 +8,8 @@
 	gpgsign = true
 [pull]
 	rebase = true
+[remote "origin"]
+	prune = true
 [alias]
 	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive --rebase; }; f"
 	commend = commit --amend --no-edit
