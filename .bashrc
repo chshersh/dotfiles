@@ -119,10 +119,13 @@ fi
 # enable stack autocompletion
 eval "$(stack --bash-completion-script stack)"
 
-# useful stack aliases
-alias sbuild="stack build        -j 2 --test --bench --no-run-tests --no-run-benchmarks"
-alias fbuild="stack build --fast -j 2 --test --bench --no-run-tests --no-run-benchmarks"
+# useful Haskell build aliases
+alias sbuild="stack build --fast -j 2 --test --bench --no-run-tests --no-run-benchmarks"
 alias cbuild="cabal new-build --enable-tests --enable-benchmarks"
+
+# useful git aliases
+alias git-sync="git fetch origin master && git rebase origin/master"
+alias git-new="git checkout master && git pull -r"
 
 # Navigation shortcuts
 alias ..="cd .."
