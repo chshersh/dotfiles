@@ -1,19 +1,18 @@
 [user]
-	email = kovanikov@gmail.com
-	name = Dmitry Kovanikov
-	signingkey = 9824BEAFD9AF6A3E
-[core]
-	editor = vim
+    email = kovanikov@gmail.com
+    name = Dmitry Kovanikov
+    signingkey = 73068751EEFDADCC
 [commit]
-	gpgsign = true
+    gpgsign = true
+[core]
+    editor = vim
 [pull]
-	rebase = true
+    rebase = true
 [remote "origin"]
-	prune = true
+    prune = true
 [alias]
-	pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive --rebase; }; f"
-	commend = commit --amend --no-edit
-	please = push --force-with-lease
-	st = status --short --branch
-	merc = merge --no-ff
-	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+    pullall = "!f(){ git pull \"$@\" && git submodule update --init --recursive --rebase; }; f"
+    commend = commit -a --amend --no-edit
+    please = push --force-with-lease
+    st = status --short --branch
+    grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"

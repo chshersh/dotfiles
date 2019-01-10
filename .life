@@ -3,7 +3,6 @@ files = [ ".bashrc"
         , ".ghc/ghci.conf"
         , ".gitconfig"
         , ".life"
-        , ".profile"
         , ".spacemacs"
         , ".vimrc"
         ]

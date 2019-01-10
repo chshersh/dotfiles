@@ -116,16 +116,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# enable stack autocompletion
-eval "$(stack --bash-completion-script stack)"
+################
+# Custom settings
+#################
 
-# useful Haskell build aliases
-alias sbuild="stack build --fast -j 2 --test --bench --no-run-tests --no-run-benchmarks"
-alias cbuild="cabal new-build --enable-tests --enable-benchmarks"
+## Navigation shortcuts
+alias ..="cd .."
 
-# useful git aliases
+## Git
 alias git-sync="git fetch origin master && git rebase origin/master"
 alias git-new="git checkout master && git pull -r"
 
-# Navigation shortcuts
-alias ..="cd .."
+## Haskell
+
+# set PATH so it includes user's private bin directories
+PATH="/opt/ghc/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH"
+
+### enable stack autocompletion
+eval "$(stack --bash-completion-script stack)"
+
+### useful Haskell build aliases
+alias sbuild="stack build --fast -j 2 --test --bench --no-run-tests --no-run-benchmarks"
+alias cbuild="cabal new-build --enable-tests --enable-benchmarks"
