@@ -6,6 +6,8 @@
     gpgsign = true
 [core]
     editor = vim
+[color]
+	diff = always
 [pull]
     rebase = true
 [remote "origin"]
