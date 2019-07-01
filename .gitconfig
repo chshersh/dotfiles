@@ -7,7 +7,7 @@
 [core]
     editor = vim
 [color]
-	diff = always
+    diff = always
 [pull]
     rebase = true
 [remote "origin"]
