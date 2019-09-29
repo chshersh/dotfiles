@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1="${debian_chroot:+($debian_chroot)}\$(if [ \$? == 0 ]; then echo '😀 '; else echo '😱 '; fi)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -123,18 +123,24 @@ fi
 ## Navigation shortcuts
 alias ..="cd .."
 
-## Git
-alias git-sync="git fetch origin master && git rebase origin/master"
-alias git-new="git checkout master && git pull -r"
-
 ## Haskell
 
 # set PATH so it includes user's private bin directories
-PATH="/opt/ghc/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH"
+PATH="/opt/ghc/bin:/opt/ghcjs/8.4/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH"
+. $HOME/.ghcup/env
+. /home/shersh/.nix-profile/etc/profile.d/nix.sh
 
-### enable stack autocompletion
+### enable tools autocompletion
 eval "$(stack --bash-completion-script stack)"
+source <(summon --bash-completion-script `which summon`)
+source <(hit --bash-completion-script `which hit`)
 
 ### useful Haskell build aliases
-alias sbuild="stack build --fast -j 2 --test --bench --no-run-tests --no-run-benchmarks"
-alias cbuild="cabal new-build --enable-tests --enable-benchmarks"
+alias sbuild="stack build --fast --test --bench --no-run-tests --no-run-benchmarks"
+alias stest="stack test --fast"
+alias cbuild="cabal build -O0 --enable-tests --enable-benchmarks --write-ghc-environment-files=always"
+alias ctest="cabal test -O0 --enable-tests --test-show-details=direct"
+
+# fuzzy search
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
