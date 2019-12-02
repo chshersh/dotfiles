@@ -1,13 +1,12 @@
 [user]
     email = kovanikov@gmail.com
-    name = Dmitry Kovanikov
+    name = Dmitrii Kovanikov
+    login = chshersh
     signingkey = 73068751EEFDADCC
 [commit]
     gpgsign = true
 [core]
-    editor = vim
-[color]
-    diff = always
+    editor = nvim
 [pull]
     rebase = true
 [remote "origin"]
