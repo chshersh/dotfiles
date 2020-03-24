@@ -6,7 +6,7 @@
 [commit]
     gpgsign = true
 [core]
-    editor = nvim
+    editor = vim
 [pull]
     rebase = true
 [remote "origin"]

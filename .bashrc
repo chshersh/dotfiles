@@ -124,16 +124,15 @@ fi
 alias ..="cd .."
 
 ## hit-on token
-export GITHUB_TOKEN=123
-## cachix token
-export CACHIX_SIGNING_KEY=123
+export GITHUB_TOKEN=xxx
+export CACHIX_SIGNING_KEY=yyy
+export APPVEYOR_TOKEN=zzz
 
 ## Haskell
 
 # set PATH so it includes user's private bin directories
-PATH="/opt/ghc/bin:/opt/ghcjs/8.4/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH"
+PATH="$HOME/.ghcup/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH"
 . $HOME/.ghcup/env
-. /home/shersh/.nix-profile/etc/profile.d/nix.sh
 
 ### enable tools autocompletion
 eval "$(stack --bash-completion-script stack)"
@@ -144,15 +143,20 @@ source <(hit --bash-completion-script `which hit`)
 alias sbuild="stack build --fast --test --bench --no-run-tests --no-run-benchmarks"
 alias stest="stack test --fast"
 alias cbuild="cabal build -O0 --enable-tests --enable-benchmarks --write-ghc-environment-files=always"
+alias cinstall="cabal install --installdir=/home/shersh/.local/bin --overwrite-policy=always"
 alias ctest="cabal test -O0 --enable-tests --test-show-details=direct"
 alias crepl="cabal repl --build-depends pretty-simple"
 alias crun="cabal run -O0"
+
+# command-line aliases
+alias unpack="tar -zxvf"
 
 # javascript stuff
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# fuzzy search
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
