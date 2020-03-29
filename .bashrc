@@ -120,10 +120,10 @@ fi
 # Custom settings
 #################
 
-## Navigation shortcuts
-alias ..="cd .."
-
-## hit-on token
+# Env variables
+## Tools settings
+export BAT_THEME="Dracula"
+## Secret tokens
 export GITHUB_TOKEN=xxx
 export CACHIX_SIGNING_KEY=yyy
 export APPVEYOR_TOKEN=zzz
@@ -139,7 +139,14 @@ eval "$(stack --bash-completion-script stack)"
 source <(summon --bash-completion-script `which summon`)
 source <(hit --bash-completion-script `which hit`)
 
-### useful Haskell build aliases
+# aliases
+## System shortcuts
+alias ..="cd .."
+alias unpack="tar -zxvf"
+alias rm="gio trash"
+alias trash="gio trash"
+
+## useful Haskell build aliases
 alias sbuild="stack build --fast --test --bench --no-run-tests --no-run-benchmarks"
 alias stest="stack test --fast"
 alias cbuild="cabal build -O0 --enable-tests --enable-benchmarks --write-ghc-environment-files=always"
@@ -148,15 +155,6 @@ alias ctest="cabal test -O0 --enable-tests --test-show-details=direct"
 alias crepl="cabal repl --build-depends pretty-simple"
 alias crun="cabal run -O0"
 
-# command-line aliases
-alias unpack="tar -zxvf"
-
-# javascript stuff
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
+## fuzzy search in shell
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
