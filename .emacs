@@ -3,21 +3,22 @@
 ;;       * ghc
 ;;       * cabal
 ;;       * stylish-haskell
-;;       * hasktags
+;;       * fast-tags
 ;;       * hoogle
 ;;   1. Copy ~/.emacs up to ;; PACKAGES ;;
 ;;   2. Restart Emacs
 ;;   3. Install packages (M-x list-packages) and then (i to mark for installation and "x" to install all)
-;;       * dracula-theme: <color theme of choice>
+;;       * <color theme of choice>
 ;;       * company
 ;;       * company-ghci
 ;;       * evil
 ;;       * exec-path-from-shell
 ;;       * haskell-mode
+;;       * markdown-mode
 ;;       * rainbow-delimeters
 ;;       * smart-mode-line
 ;;       * smex
-;;       * diff-hl
+;;       * use-package
 ;;   4. Copy the rest of .emacs file
 ;;   5. Restart and enjoy!
 
@@ -45,7 +46,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; set font
-(set-default-font "Ubuntu Mono-14")
+(set-frame-font "Ubuntu Mono-14")
 
 ;; put all auto-save files in a separate directory
 (setq backup-directory-alist '(("." . "~/.emacs_saves")))
@@ -53,9 +54,15 @@
 ;; save desktop session on quit
 (desktop-save-mode 1)
 
+;; automatically update buffers when files change
+(global-auto-revert-mode t)
+
 ;;;;;;;;;;;;;;
 ;; PACKAGES ;;
 ;;;;;;;;;;;;;;
+
+;; use-package: simple package configuration
+(require 'use-package)
 
 ;; set $PATH from user shell
 (exec-path-from-shell-initialize)
@@ -92,8 +99,17 @@
     sml/shorten-modes t
 )
 
-;; automatically reload changed files
-(global-auto-revert-mode t)
+;; markdown
+(use-package markdown-mode
+    :ensure t
+    :commands (markdown-mode gfm-mode)
+    :mode
+        ( ("README\\.md\\'" . gfm-mode)
+          ("\\.md\\'" . markdown-mode)
+          ("\\.markdown\\'" . markdown-mode)
+        )
+    :init (setq markdown-command "multimarkdown")
+)
 
 ;;;;;;;;;;;;;
 ;; HASKELL ;;
@@ -146,7 +162,6 @@
     )
 )
 
-;;; jump-to-definition with hasktags
 ;; (setq haskell-tags-on-save t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -158,13 +173,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (naquadah)))
+ '(custom-enabled-themes (quote (dracula)))
  '(custom-safe-themes
    (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "2eb1f5551310e99101f0f9426485ab73aa5386054da877aacd15d438382bb72e" default)))
+    ("947190b4f17f78c39b0ab1ea95b1e6097cc9202d55c73a702395fc817f899393" "47ec21abaa6642fefec1b7ace282221574c2dd7ef7715c099af5629926eb4fd7" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "2eb1f5551310e99101f0f9426485ab73aa5386054da877aacd15d438382bb72e" default)))
+ '(frame-brackground-mode (quote dark))
  '(package-selected-packages
    (quote
-    (smart-mode-line company company-ghci exec-path-from-shell diff-hl haskell-mode rainbow-delimiters evil naquadah-theme smex))))
+    (use-package markdown-mode dracula-theme smart-mode-line company company-ghci exec-path-from-shell diff-hl haskell-mode rainbow-delimiters evil smex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -179,12 +195,12 @@
 ;; EDITOR AND COLOR SETTINGS
 
 ;; Set cursor color to white
-(setq default-frame-alist '((cursor-color . "white")))
+(set-cursor-color "#ffffff")
 
 ;; higlight line
 (require 'hl-line)
 (global-hl-line-mode t)
-(set-face-background 'hl-line "#444")
+(set-face-background 'hl-line "#20385E")
 
 ;; whitespace mode
 (require 'whitespace)
