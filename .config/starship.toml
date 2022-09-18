@@ -1,0 +1,60 @@
+# Config:
+# https://starship.rs/config/
+
+# Pretty preset:
+# https://starship.rs/presets/pastel-powerline.html
+
+# Don't inserts a blank line between shell prompts
+add_newline = false
+
+format = """
+[](fg:#FFC107)\
+$directory\
+[](fg:#FFC107 bg:#772953)\
+$haskell\
+[](fg:#772953 bg:#CE412B)\
+$package\
+$rust\
+[](fg:#CE412B bg:#F05032)\
+$git_branch\
+$git_status\
+[](fg:#F05032)\
+$cmd_duration\
+$line_break\
+$character
+"""
+
+[directory]
+style = "fg:black bg:#FFC107"
+format = "[ $path ]($style)"
+truncation_length = 8
+truncation_symbol = ""
+
+[git_branch]
+symbol = " "
+style = "bg:#F05032"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#F05032"
+format = '[$all_status$ahead_behind ]($style)'
+
+[character]
+error_symbol = "[✗](bold red) "
+
+[cmd_duration]
+min_time = 0
+format = " [$duration]($style) "
+
+[package]
+style = "bg:#CE412B"
+format = "[is $symbol[$version](italic $style) ]($style)"
+
+[haskell]
+symbol = "🦥"
+style = "bg:#772953"
+format = '[ $symbol [GHC ($version)](bold $style) ]($style)'
+
+[rust]
+style = "bg:#CE412B"
+format = '[via $symbol[$version](bold $style) ]($style)'
