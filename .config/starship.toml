@@ -4,6 +4,13 @@
 # Pretty preset:
 # https://starship.rs/presets/pastel-powerline.html
 
+# Fonts: https://www.nerdfonts.com/
+#   Hack Nerd Font
+#   Caskaydia Cove Nerd Font
+
+# Installing fonts on Ubuntu:
+# https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0
+
 # Don't inserts a blank line between shell prompts
 add_newline = false
 
@@ -28,7 +35,7 @@ $character
 style = "fg:black bg:#FFC107"
 format = "[ $path ]($style)"
 truncation_length = 8
-truncation_symbol = ""
+truncation_symbol = " "
 
 [git_branch]
 symbol = " "
