@@ -19,7 +19,9 @@ format = """
 $directory\
 [](fg:#FFC107 bg:#772953)\
 $haskell\
-[](fg:#772953 bg:#CE412B)\
+[](fg:#772953 bg:#EE6A1A)\
+$ocaml\
+[](fg:#EE6A1A bg:#CE412B)\
 $package\
 $rust\
 [](fg:#CE412B bg:#F05032)\
@@ -53,14 +55,19 @@ error_symbol = "[✗](bold red) "
 min_time = 0
 format = " [$duration]($style) "
 
-[package]
-style = "bg:#CE412B"
-format = "[is $symbol[$version](italic $style) ]($style)"
-
 [haskell]
 symbol = "🦥"
 style = "bg:#772953"
 format = '[ $symbol [GHC ($version)](bold $style) ]($style)'
+
+[ocaml]
+symbol = "🐫"
+style = "bg:#EE6A1A"
+format = "[$symbol $version $switch_indicator$switch_name ]($style)"
+
+[package]
+style = "bg:#CE412B"
+format = "[is $symbol[$version](italic $style) ]($style)"
 
 [rust]
 style = "bg:#CE412B"
