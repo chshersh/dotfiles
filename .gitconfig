@@ -21,3 +21,5 @@
 	external = difft
 [init]
 	defaultBranch = main
+[credential]
+	helper = store
