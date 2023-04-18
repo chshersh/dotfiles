@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\$(if [ \$? == 0 ]; then echo '😀 '; else echo '😱 '; fi)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -116,28 +116,29 @@ if ! shopt -oq posix; then
   fi
 fi
 
-################
+#################
 # Custom settings
 #################
 
 # Env variables
+
+## Patch $PATH
+PATH="$HOME/.local/bin:$PATH"
+
 ## Tools settings
 export BAT_THEME="Dracula"
-## Secret tokens
-export GITHUB_TOKEN=xxx
-export CACHIX_SIGNING_KEY=yyy
-export APPVEYOR_TOKEN=zzz
 
 ## Haskell
 
 # set PATH so it includes user's private bin directories
-PATH="$HOME/.ghcup/bin:$HOME/.cabal/bin:$HOME/.local/bin:$PATH"
-. $HOME/.ghcup/env
+PATH="$HOME/.ghcup/bin:$PATH"
+# . $HOME/.ghcup/env
 
 ### enable tools autocompletion
-eval "$(stack --bash-completion-script stack)"
-source <(summon --bash-completion-script `which summon`)
-source <(hit --bash-completion-script `which hit`)
+#### Rust
+# eval "$(tool completion bash)"
+# eval "$(tool completion bash --rename tool)"
+# source <(procs --completion-out bash)
 
 # aliases
 ## System shortcuts
@@ -147,14 +148,38 @@ alias rm="gio trash"
 alias trash="gio trash"
 
 ## useful Haskell build aliases
+### stack
 alias sbuild="stack build --fast --test --bench --no-run-tests --no-run-benchmarks"
 alias stest="stack test --fast"
+
+### cabal
 alias cbuild="cabal build -O0 --enable-tests --enable-benchmarks --write-ghc-environment-files=always"
-alias cinstall="cabal install --installdir=/home/shersh/.local/bin --overwrite-policy=always --install-method=copy"
+alias cinstall="cabal install --installdir=$HOME/.local/bin --overwrite-policy=always --install-method=copy"
 alias ctest="cabal test -O0 --enable-tests --test-show-details=direct"
 alias crepl="cabal repl --build-depends pretty-simple"
 alias crun="cabal run -O0"
+alias cclean="cabal clean"
+alias cupdate="cabal update"
+alias cdist="cabal sdist"
+alias cdoc="cabal haddock --enable-documentation"
+alias cdoc-hackage="cabal haddock --enable-documentation --haddock-options=--quickjump --haddock-for-hackage"
+
+function cupload() {
+    cabal upload "$1" -u shersh -p <PASSWORD>
+}
+
+function cupload-doc() {
+    cabal upload -d "$1" --publish -u shersh -p <PASSWORD>
+}
 
 ## fuzzy search in shell
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# export FZF_DEFAULT_COMMAND='rg --hidden -l "" -g "!.git"'
+
+## Rust installation
+
+## Starship
+# eval "$(starship init bash)"
+
+## OCaml
+# eval "$(opam env)"
