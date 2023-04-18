@@ -1,8 +1,0 @@
-directories = []
-files = [ ".bashrc"
-        , ".ghc/ghci.conf"
-        , ".gitconfig"
-        , ".life"
-        , ".spacemacs"
-        , ".vimrc"
-        ]
