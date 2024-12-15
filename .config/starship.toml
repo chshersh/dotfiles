@@ -21,7 +21,9 @@ $directory\
 $haskell\
 [](fg:#772953 bg:#EE6A1A)\
 $ocaml\
-[](fg:#EE6A1A bg:#CE412B)\
+[](fg:#EE6A1A bg:#60B5CC)\
+$elm\
+[](fg:#60B5CC bg:#CE412B)\
 $package\
 $rust\
 [](fg:#CE412B bg:#F05032)\
@@ -64,6 +66,11 @@ format = '[ $symbol [GHC ($version)](bold $style) ]($style)'
 symbol = "🐫"
 style = "bg:#EE6A1A"
 format = "[$symbol $version $switch_indicator$switch_name ]($style)"
+
+[elm]
+symbol = '🌳 '
+style = 'bg:#60B5CC fg:black'
+format = '[$symbol($version)]($style)'
 
 [package]
 style = "bg:#CE412B"
