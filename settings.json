@@ -1,0 +1,37 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "editor.fontSize": 18,
+    "window.zoomLevel": 2,
+
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<Esc>"
+            ],
+            "after": [
+                "<Esc>"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-p>"
+            ],
+            "commands": [
+                "workbench.action.quickOpen",
+            ]
+        },
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "cSpell.language": "en-GB",
+    "cSpell.userWords": [
+        "Caml"
+    ],
+}
