@@ -1,0 +1,105 @@
+# Config:
+# https://starship.rs/config/
+
+# Pretty preset:
+# https://starship.rs/presets/pastel-powerline.html
+
+# Fonts: https://www.nerdfonts.com/
+#   Hack Nerd Font
+#   Caskaydia Cove Nerd Font
+
+# Installing fonts on Ubuntu:
+# https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0
+
+# Don't inserts a blank line between shell prompts
+add_newline = false
+
+format = """
+[ ](bg:#FFC107 fg:black)\
+$directory\
+[](fg:#FFC107 bg:#772953)\
+$haskell\
+[](fg:#772953 bg:#EE6A1A)\
+$ocaml\
+[](fg:#EE6A1A bg:#00599C)\
+$c\
+[](fg:#00599C)\
+$git_branch\
+$git_status\
+$cmd_duration\
+$line_break\
+$character
+"""
+
+[directory]
+style = "fg:black bg:#FFC107"
+format = "[ $path ]($style)"
+truncation_length = 8
+truncation_symbol = ""
+
+[git_branch]
+symbol = " "
+format = '[ $symbol](fg:#F1FA8C) [$branch ]($style)'
+
+[git_status]
+format = '[$all_status$ahead_behind ](fg:#fcb468)'
+
+[character]
+error_symbol = "[✗](bold red) "
+
+[cmd_duration]
+min_time = 0
+format = " [ $duration]($style) "
+
+[haskell]
+symbol = "🦥"
+style = "bg:#772953"
+format = '[ $symbol [GHC ($version)](bold $style) ]($style)'
+
+[ocaml]
+symbol = "🐫"
+style = "bold bg:#EE6A1A"
+format = "[$symbol $version $switch_indicator$switch_name ]($style)"
+
+[package]
+style = "bg:#CE412B"
+format = "[is $symbol[$version](italic $style) ]($style)"
+
+[c]
+style = "bold bg:#00599C"
+format = '[ C++ ($version(-$name) )]($style)'
+disabled = false
+detect_files = ["CMakeLists.txt"]
+  notes    main ?   5s
+❯ l = " "
+format = '[ $symbol](fg:#F1FA8C) [$branch ]($style)'
+
+[git_status]
+format = '[$all_status$ahead_behind ](fg:#fcb468)'
+
+[character]
+error_symbol = "[✗](bold red) "
+
+[cmd_duration]
+min_time = 0
+format = " [ $duration]($style) "
+
+[haskell]
+symbol = "<0001f9a5>"
+style = "bg:#772953"
+format = '[ $symbol [GHC ($version)](bold $style) ]($style)'
+
+[ocaml]
+symbol = "🐫"
+style = "bold bg:#EE6A1A"
+format = "[$symbol $version $switch_indicator$switch_name ]($style)"
+
+[package]
+style = "bg:#CE412B"
+format = "[is $symbol[$version](italic $style) ]($style)"
+
+[c]
+style = "bold bg:#00599C"
+format = '[ C++ ($version(-$name) )]($style)'
+disabled = false
+detect_files = ["CMakeLists.txt"]
