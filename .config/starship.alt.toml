@@ -70,36 +70,4 @@ style = "bold bg:#00599C"
 format = '[ C++ ($version(-$name) )]($style)'
 disabled = false
 detect_files = ["CMakeLists.txt"]
-  notes    main ?   5s
-❯ l = " "
-format = '[ $symbol](fg:#F1FA8C) [$branch ]($style)'
-
-[git_status]
-format = '[$all_status$ahead_behind ](fg:#fcb468)'
-
-[character]
-error_symbol = "[✗](bold red) "
-
-[cmd_duration]
-min_time = 0
-format = " [ $duration]($style) "
-
-[haskell]
-symbol = "<0001f9a5>"
-style = "bg:#772953"
-format = '[ $symbol [GHC ($version)](bold $style) ]($style)'
-
-[ocaml]
-symbol = "🐫"
-style = "bold bg:#EE6A1A"
-format = "[$symbol $version $switch_indicator$switch_name ]($style)"
-
-[package]
-style = "bg:#CE412B"
-format = "[is $symbol[$version](italic $style) ]($style)"
-
-[c]
-style = "bold bg:#00599C"
-format = '[ C++ ($version(-$name) )]($style)'
-disabled = false
 detect_files = ["CMakeLists.txt"]
