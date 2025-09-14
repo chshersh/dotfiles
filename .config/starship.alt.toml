@@ -22,7 +22,7 @@ $haskell\
 [](fg:#772953 bg:#EE6A1A)\
 $ocaml\
 [](fg:#EE6A1A bg:#00599C)\
-$c\
+$cpp\
 [](fg:#00599C)\
 $git_branch\
 $git_status\
@@ -65,9 +65,8 @@ format = "[$symbol $version $switch_indicator$switch_name ]($style)"
 style = "bg:#CE412B"
 format = "[is $symbol[$version](italic $style) ]($style)"
 
-[c]
+[cpp]
 style = "bold bg:#00599C"
 format = '[ C++ ($version(-$name) )]($style)'
 disabled = false
-detect_files = ["CMakeLists.txt"]
 detect_files = ["CMakeLists.txt"]
